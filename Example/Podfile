@@ -5,6 +5,6 @@ use_frameworks!
 target 'Colortools_Tests', :exclusive => true do
   pod "Colortools", :path => "../"
 
-  pod 'Quick', '~> 0.3.1'
+  pod 'Quick', '~> 0.8'
   pod 'Nimble'
 end

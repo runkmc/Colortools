@@ -1,12 +1,12 @@
 PODS:
   - Colortools (0.1.0)
   - Nimble (3.0.0)
-  - Quick (0.3.1)
+  - Quick (0.8.0)
 
 DEPENDENCIES:
   - Colortools (from `../`)
   - Nimble
-  - Quick (~> 0.3.1)
+  - Quick (~> 0.8)
 
 EXTERNAL SOURCES:
   Colortools:
@@ -15,6 +15,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Colortools: eac57a04b409edbabcbfad521e7153656c982480
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
-  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
 
 COCOAPODS: 0.39.0
