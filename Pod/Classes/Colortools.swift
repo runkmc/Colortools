@@ -13,10 +13,21 @@ extension UIColor {
     saturation.initialize(0.0)
     alpha.initialize(0.0)
     
+    var values: (hue:Double, saturation:Double, brightness:Double)?
     if self.getHue(hue, saturation: saturation, brightness: brightness, alpha: alpha) == true {
-      return (hue: Double(hue.memory), saturation: Double(saturation.memory), brightness: Double(brightness.memory))
+      values = (hue: Double(hue.memory), saturation: Double(saturation.memory), brightness: Double(brightness.memory))
     } else {
-      return nil
+      values = nil
     }
+    hue.destroy(1)
+    hue.dealloc(1)
+    brightness.destroy(1)
+    brightness.dealloc(1)
+    saturation.destroy(1)
+    saturation.dealloc(1)
+    alpha.destroy(1)
+    alpha.dealloc(1)
+    
+    return values
   }
 }
