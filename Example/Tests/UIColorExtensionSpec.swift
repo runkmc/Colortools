@@ -6,7 +6,7 @@ import Colortools
 
 class UIColorExtensionsSpec: QuickSpec {
     override func spec() {
-        describe("returning values") {
+      describe("returning values") {
           
           it("returns a tuple containing hue, saturation, brightness, and alpha") {
             let testColor = UIColor.init(hue: 0.4, saturation: 0.5, brightness: 0.6, alpha: 1.0)
@@ -30,7 +30,17 @@ class UIColorExtensionsSpec: QuickSpec {
             let testColor = UIColor.init(white: 0.7, alpha: 0.3)
             
             expect(testColor.getGreyscale()?.white).to(beCloseTo(0.7, within: 0.001))
+            expect(testColor.getGreyscale()?.alpha).to(beCloseTo(0.3, within: 0.001))
           }
         }
+      
+      describe("changing colors") {
+        let hsbColor = UIColor.init(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 0.5)
+        
+        it("lightens a color") {
+          let testColor = hsbColor.lighten(0.2)
+          expect(testColor.getHsba()?.brightness).to(beCloseTo(0.7, within: 0.001))
+        }
+      }
     }
 }
