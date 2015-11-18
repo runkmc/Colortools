@@ -112,5 +112,17 @@ class UIColorExtensionsSpec: QuickSpec {
           expect(testColor.blue).to(beCloseTo(0.2, within: 0.001))
         }
       }
+      
+      describe("saturate and desaturate") {
+        let hsbaColor = UIColor.init(hue: 0.3, saturation: 0.5, brightness: 0.8, alpha: 1.0)
+        
+        it("can saturate a color") {
+          let testColor = hsbaColor.saturate(0.3)
+          let oversaturate = hsbaColor.saturate(0.9)
+          
+          expect(testColor?.saturation).to(beCloseTo(0.8, within: 0.001))
+          expect(oversaturate?.saturation).to(beCloseTo(1.0, within: 0.001))
+        }
+      }
     }
 }

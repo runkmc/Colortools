@@ -158,5 +158,16 @@ extension UIColor {
   public func shade(amount:Double) -> UIColor {
     return self.tint((amount * -1))
   }
+  
+  public func saturate(amount:Double) -> UIColor? {
+    if let hsb = self.getHsba() {
+      return UIColor.init(hue: CGFloat(hsb.hue),
+        saturation: CGFloat(hsb.saturation + amount),
+        brightness: CGFloat(hsb.brightness),
+        alpha: CGFloat(hsb.alpha))
+    } else {
+      return nil
+    }
+  }
     
 }
