@@ -81,5 +81,15 @@ class UIColorExtensionsSpec: QuickSpec {
           expect(testColor.getGreyscale()?.white).to(beCloseTo(0.6, within: 0.001))
         }
       }
+      
+      describe("darken and scale darken") {
+        let hsbColor = UIColor.init(hue: 0.6, saturation: 0.6, brightness: 0.6, alpha: 0.6)
+        let greyColor = UIColor.init(white: 0.6, alpha:0.6)
+        
+        it ("should darken a color") {
+          let testColor = hsbColor.darken(0.4)
+          expect(testColor.brightness).to(beCloseTo(0.2, within: 0.001))
+        }
+      }
     }
 }

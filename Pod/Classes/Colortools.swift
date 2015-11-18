@@ -136,4 +136,8 @@ extension UIColor {
     }
   }
   
+  public func darken(amount:Double) -> UIColor {
+    return self.lighten((amount * -1))
+  }
+  
 }
