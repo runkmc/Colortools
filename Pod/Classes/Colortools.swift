@@ -143,4 +143,23 @@ extension UIColor {
   public func scaleDarken(amount:Double) -> UIColor {
     return self.scaleLighten((amount * -1))
   }
+  
+  public func tint(amount:Double) -> UIColor {
+    if let rgb = self.getRgba() {
+      return UIColor.init(red: CGFloat(rgb.red + amount),
+        green: CGFloat(rgb.green + amount),
+        blue: CGFloat(rgb.blue + amount),
+        alpha: CGFloat(rgb.alpha))
+    } else {
+      return self
+  }
+    
+    
+}
+  
+  
+  
+  
+  
+
 }

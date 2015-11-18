@@ -96,5 +96,15 @@ class UIColorExtensionsSpec: QuickSpec {
           expect(testColor.brightness).to(beCloseTo(0.3, within: 0.001))
         }
       }
+      
+      describe("tint and shade") {
+        let rgbaColor = UIColor.init(red: 0.3, green: 0.5, blue: 0.7, alpha: 1.0)
+        
+        it("can tint a color") {
+          let testColor = rgbaColor.tint(0.3)
+          expect(testColor.red).to(beCloseTo(0.6, within: 0.001))
+          expect(testColor.blue).to(beCloseTo(1.0, within: 0.0001))
+        }
+      }
     }
 }
