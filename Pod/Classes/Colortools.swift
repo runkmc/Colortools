@@ -152,14 +152,11 @@ extension UIColor {
         alpha: CGFloat(rgb.alpha))
     } else {
       return self
+    }
+  }
+  
+  public func shade(amount:Double) -> UIColor {
+    return self.tint((amount * -1))
   }
     
-    
-}
-  
-  
-  
-  
-  
-
 }

@@ -105,6 +105,12 @@ class UIColorExtensionsSpec: QuickSpec {
           expect(testColor.red).to(beCloseTo(0.6, within: 0.001))
           expect(testColor.blue).to(beCloseTo(1.0, within: 0.0001))
         }
+        
+        it("can shade a color") {
+          let testColor = rgbaColor.shade(0.5)
+          expect(testColor.red).to(beCloseTo(0.0, within: 0.001))
+          expect(testColor.blue).to(beCloseTo(0.2, within: 0.001))
+        }
       }
     }
 }
