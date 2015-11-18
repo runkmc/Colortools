@@ -2,6 +2,38 @@ import UIKit
 
 extension UIColor {
   
+  public var hue: Double? {
+    return self.getHsba()?.hue
+  }
+  
+  public var saturation: Double? {
+    return self.getHsba()?.saturation
+  }
+  
+  public var brightness: Double? {
+    return self.getHsba()?.brightness
+  }
+  
+  public var alpha: Double? {
+    return self.getHsba()?.alpha
+  }
+  
+  public var red: Double? {
+    return self.getRgba()?.red
+  }
+  
+  public var green: Double? {
+    return self.getRgba()?.green
+  }
+  
+  public var blue: Double? {
+    return self.getRgba()?.blue
+  }
+  
+  public var white: Double? {
+    return self.getGreyscale()?.white
+  }
+  
   public func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
     let hue = UnsafeMutablePointer<CGFloat>.alloc(1)
     let brightness = UnsafeMutablePointer<CGFloat>.alloc(1)

@@ -35,11 +35,20 @@ class UIColorExtensionsSpec: QuickSpec {
         
           it("returns individual components") {
             let hsbaColor = UIColor.init(hue: 0.1, saturation: 0.2, brightness: 0.3, alpha: 0.4)
-            let rbgaColor = UIColor.init(red: 0.5, green: 0.6, blue: 0.7, alpha: 0.8)
+            let rgbaColor = UIColor.init(red: 0.5, green: 0.6, blue: 0.7, alpha: 0.8)
             let greyColor = UIColor.init(white: 0.9, alpha: 1.0)
             
-            expect(hsbaColor.hue?).to(beCloseTo(0.1, within: 0.001))
+            expect(hsbaColor.hue).to(beCloseTo(0.1, within: 0.001))
+            expect(hsbaColor.saturation).to(beCloseTo(0.2, within: 0.001))
+            expect(hsbaColor.brightness).to(beCloseTo(0.3, within: 0.001))
+            expect(hsbaColor.alpha).to(beCloseTo(0.4, within: 0.001))
             
+            expect(rgbaColor.red).to(beCloseTo(0.5, within: 0.001))
+            expect(rgbaColor.green).to(beCloseTo(0.6, within: 0.001))
+            expect(rgbaColor.blue).to(beCloseTo(0.7, within: 0.001))
+            expect(rgbaColor.alpha).to(beCloseTo(0.8, within: 0.001))
+            
+            expect(greyColor.white).to(beCloseTo(0.9, within: 0.001))
           }
         }
       
