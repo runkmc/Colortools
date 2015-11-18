@@ -32,14 +32,44 @@ class UIColorExtensionsSpec: QuickSpec {
             expect(testColor.getGreyscale()?.white).to(beCloseTo(0.7, within: 0.001))
             expect(testColor.getGreyscale()?.alpha).to(beCloseTo(0.3, within: 0.001))
           }
+        
+          it("returns individual components") {
+            let hsbaColor = UIColor.init(hue: 0.1, saturation: 0.2, brightness: 0.3, alpha: 0.4)
+            let rbgaColor = UIColor.init(red: 0.5, green: 0.6, blue: 0.7, alpha: 0.8)
+            let greyColor = UIColor.init(white: 0.9, alpha: 1.0)
+            
+            expect(hsbaColor.hue?).to(beCloseTo(0.1, within: 0.001))
+            
+          }
         }
       
-      describe("changing colors") {
+      describe("lighten and scale lighten") {
         let hsbColor = UIColor.init(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 0.5)
-        
+        let greyColor = UIColor.init(white: 0.5, alpha:0.5)
+       
         it("lightens a color") {
           let testColor = hsbColor.lighten(0.2)
           expect(testColor.getHsba()?.brightness).to(beCloseTo(0.7, within: 0.001))
+        }
+        
+        it("should cap lighten at 1.0") {
+          let testColor = hsbColor.lighten(0.8)
+          expect(testColor.getHsba()?.brightness).to(beCloseTo(1.0, within: 0.001))
+        }
+        
+        it("should lighten a greyscale color") {
+          let testColor = greyColor.lighten(0.3)
+          expect(testColor.getGreyscale()?.white).to(beCloseTo(0.8, within: 0.001))
+        }
+        
+        it("should scaleLighten a color") {
+          let testColor = hsbColor.scaleLighten(0.5)
+          expect(testColor.getHsba()?.brightness).to(beCloseTo(0.75, within: 0.001))
+        }
+        
+        it("should scaleLighten a greyscale color") {
+          let testColor = greyColor.scaleLighten(0.2)
+          expect(testColor.getGreyscale()?.white).to(beCloseTo(0.6, within: 0.001))
         }
       }
     }

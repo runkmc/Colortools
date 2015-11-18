@@ -85,12 +85,22 @@ extension UIColor {
   
   public func lighten(amount:Double) -> UIColor {
     if let values = self.getHsba() {
-    return UIColor.init(hue: CGFloat(values.hue),
-      saturation: CGFloat(values.saturation),
-      brightness: CGFloat(values.brightness + amount),
-      alpha: CGFloat(values.alpha))
-    } else {
-      return self
+      return UIColor.init(hue: CGFloat(values.hue),
+        saturation: CGFloat(values.saturation),
+        brightness: CGFloat(values.brightness + amount),
+        alpha: CGFloat(values.alpha))
+      } else {
+        return self
+    }
+  }
+  
+  public func scaleLighten(amount:Double) -> UIColor {
+    if let values = self.getHsba() {
+      return UIColor.init(hue: CGFloat(values.hue),
+        saturation: CGFloat(values.saturation),
+        brightness: CGFloat(values.brightness + (values.brightness * amount)),
+        alpha: CGFloat(values.alpha))
+      } else { return self
     }
   }
   
