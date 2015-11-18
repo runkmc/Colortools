@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor {
   
-  public func hsb() -> (hue:Double, saturation:Double, brightness:Double)? {
+  public func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
     let hue = UnsafeMutablePointer<CGFloat>.alloc(1)
     let brightness = UnsafeMutablePointer<CGFloat>.alloc(1)
     let saturation = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -13,9 +13,9 @@ extension UIColor {
     saturation.initialize(0.0)
     alpha.initialize(0.0)
     
-    var values: (hue:Double, saturation:Double, brightness:Double)?
+    var values: (hue:Double, saturation:Double, brightness:Double, alpha:Double)?
     if self.getHue(hue, saturation: saturation, brightness: brightness, alpha: alpha) == true {
-      values = (hue: Double(hue.memory), saturation: Double(saturation.memory), brightness: Double(brightness.memory))
+      values = (hue: Double(hue.memory), saturation: Double(saturation.memory), brightness: Double(brightness.memory), alpha: Double(alpha.memory))
     } else {
       values = nil
     }
@@ -30,4 +30,36 @@ extension UIColor {
     
     return values
   }
+  
+  public func getRgba() -> (red:Double, green:Double, blue:Double, alpha:Double)? {
+    let red = UnsafeMutablePointer<CGFloat>.alloc(1)
+    let blue = UnsafeMutablePointer<CGFloat>.alloc(1)
+    let green = UnsafeMutablePointer<CGFloat>.alloc(1)
+    let alpha = UnsafeMutablePointer<CGFloat>.alloc(1)
+    
+    red.initialize(0.0)
+    blue.initialize(0.0)
+    green.initialize(0.0)
+    alpha.initialize(0.0)
+    
+    var values: (red:Double, blue:Double, green:Double, alpha:Double)?
+    if self.getRed(red, green: green, blue: blue, alpha: alpha) == true {
+      values = (red: Double(red.memory), green: Double(green.memory), blue: Double(blue.memory), alpha: Double(alpha.memory))
+    } else {
+      values = nil
+    }
+    
+    red.destroy(1)
+    red.dealloc(1)
+    blue.destroy(1)
+    blue.dealloc(1)
+    green.destroy(1)
+    green.dealloc(1)
+    alpha.destroy(1)
+    alpha.dealloc(1)
+    
+    return values
+  }
+  
+  
 }
