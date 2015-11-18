@@ -24,7 +24,12 @@ class UIColorExtensionsSpec: QuickSpec {
             expect(testColor.getRgba()?.blue).to(beCloseTo(0.5, within: 0.001))
             expect(testColor.getRgba()?.red).to(beCloseTo(0.3, within: 0.001))
             expect(testColor.getRgba()?.red).to(beCloseTo(0.3, within: 0.001))
+          }
+          
+          it("returns greyscale values") {
+            let testColor = UIColor.init(white: 0.7, alpha: 0.3)
             
+            expect(testColor.getGreyscale()?.white).to(beCloseTo(0.7, within: 0.001))
           }
         }
     }

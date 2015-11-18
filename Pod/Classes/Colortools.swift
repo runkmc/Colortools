@@ -61,5 +61,26 @@ extension UIColor {
     return values
   }
   
+  public func getGreyscale() -> (white:Double, alpha:Double)? {
+    let white = UnsafeMutablePointer<CGFloat>.alloc(1)
+    let alpha = UnsafeMutablePointer<CGFloat>.alloc(1)
+    
+    white.initialize(0.0)
+    alpha.initialize(0.0)
+    
+    var values: (white:Double, alpha:Double)?
+    if self.getWhite(white, alpha: alpha) == true {
+      values = (white: Double(white.memory), alpha: Double(alpha.memory))
+    } else {
+      values = nil
+    }
+    
+    white.destroy(1)
+    white.dealloc(1)
+    alpha.destroy(1)
+    alpha.dealloc(1)
+    
+    return values
+  }
   
 }
