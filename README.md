@@ -30,24 +30,55 @@ public var white: Double?  // Returns a UIColor's white component, if it's a gre
 But what about the methods? CHECK THESE OUT:
 
 ```swift
-// Returns an optional tuple with the named HSBA components
 public func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)?
+// Returns an optional tuple with the named HSBA components
 
-// Returns an optional tuple with the named RGBA components
 public func getRgba() -> (red:Double, green:Double, blue:Double, alpha:Double)?
+// Returns an optional tuple with the named RGBA components
 
-// Returns an optional tuple with the named greyscale components
 public func getGreyscale() -> (white:Double, alpha:Double)?
+// Returns an optional tuple with the named greyscale components
 
-// Returns an optional UIColor with the brightness raised by a number between 0.0 and 1.0
 public func lighten(amount:Double) -> UIColor?
+// Returns an optional UIColor with the brightness raised by a number between 0.0 and 1.0
 
+public func scaleLighten(amount:Double) -> UIColor?
 // Returns an optional UIColor with the brightness raised a percentage of the
 // way to 1.0. (i.e. scaleLighten(0.5) on a UIColor with a brightness of 0.5 will
 // return a UIColor with a brightness of 0.75 -- 50% of the way to 1.0
-public func scaleLighten(amount:Double) -> UIColor?
+
+public func darken(amount:Double) -> UIColor?
+// The opposite of lighten
+
+public func scaleDarken(amount:Double) -> UIColor?
+// The opposite of scaleLighten
+
+public func tint(amount:Double) -> UIColor?
+// Takes a double between 0.0 and 1.0, and adds the corresponding amount of
+// white to the color. This is kind of like lighten, but different. Try it.
+
+public func shade(amount:Double) -> UIColor?
+// The opposite of tint, this adds black to a color
+
+public func saturate(amount:Double) -> UIColor?
+// Takes a double between 0.0 and 1.0 and raises the saturation accordingly
+
+public func desaturate(amount:Double) -> UIColor?
+// The opposite of saturate
 ```
 
+But you said you had a new way to create UIColors, as well. Are you... lying?
+
+```swift
+public convenience init(hex:UInt32) 
+// This takes a hexadecimal number of RRGGBBAA format. Observe:
+
+let green = UIColor.init(hex:0x00FF00FF)
+let semiTransparentRed = UIColor.init(hex:0xFF000088)
+let orange = UIColor.init(hex:0xF27935FF)
+
+// And so on.
+```
 
 To run the tests, clone the repo, and run `pod install` from the Example directory first.
 
