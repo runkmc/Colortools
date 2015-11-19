@@ -124,47 +124,47 @@ extension UIColor {
     return values
   }
   
-  public func lighten(amount:Double) -> UIColor {
+  public func lighten(amount:Double) -> UIColor? {
     if let values = self.getHsba() {
       return UIColor.init(hue: CGFloat(values.hue),
         saturation: CGFloat(values.saturation),
         brightness: CGFloat(values.brightness + amount),
         alpha: CGFloat(values.alpha))
       } else {
-        return self
+        return nil
     }
   }
   
-  public func scaleLighten(amount:Double) -> UIColor {
+  public func scaleLighten(amount:Double) -> UIColor? {
     if let values = self.getHsba() {
       return UIColor.init(hue: CGFloat(values.hue),
         saturation: CGFloat(values.saturation),
         brightness: CGFloat(values.brightness + (values.brightness * amount)),
         alpha: CGFloat(values.alpha))
-      } else { return self
+      } else { return nil
     }
   }
   
-  public func darken(amount:Double) -> UIColor {
+  public func darken(amount:Double) -> UIColor? {
     return self.lighten((amount * -1))
   }
   
-  public func scaleDarken(amount:Double) -> UIColor {
+  public func scaleDarken(amount:Double) -> UIColor? {
     return self.scaleLighten((amount * -1))
   }
   
-  public func tint(amount:Double) -> UIColor {
+  public func tint(amount:Double) -> UIColor? {
     if let rgb = self.getRgba() {
       return UIColor.init(red: CGFloat(rgb.red + amount),
         green: CGFloat(rgb.green + amount),
         blue: CGFloat(rgb.blue + amount),
         alpha: CGFloat(rgb.alpha))
     } else {
-      return self
+      return nil
     }
   }
   
-  public func shade(amount:Double) -> UIColor {
+  public func shade(amount:Double) -> UIColor? {
     return self.tint((amount * -1))
   }
   
@@ -182,5 +182,4 @@ extension UIColor {
   public func desaturate(amount:Double) -> UIColor? {
     return self.saturate((amount * -1))
   }
-    
 }

@@ -58,27 +58,27 @@ class UIColorExtensionsSpec: QuickSpec {
        
         it("lightens a color") {
           let testColor = hsbColor.lighten(0.2)
-          expect(testColor.getHsba()?.brightness).to(beCloseTo(0.7, within: 0.001))
+          expect(testColor?.getHsba()?.brightness).to(beCloseTo(0.7, within: 0.001))
         }
         
         it("should cap lighten at 1.0") {
           let testColor = hsbColor.lighten(0.8)
-          expect(testColor.getHsba()?.brightness).to(beCloseTo(1.0, within: 0.001))
+          expect(testColor?.getHsba()?.brightness).to(beCloseTo(1.0, within: 0.001))
         }
         
         it("should lighten a greyscale color") {
           let testColor = greyColor.lighten(0.3)
-          expect(testColor.getGreyscale()?.white).to(beCloseTo(0.8, within: 0.001))
+          expect(testColor?.getGreyscale()?.white).to(beCloseTo(0.8, within: 0.001))
         }
         
         it("should scaleLighten a color") {
           let testColor = hsbColor.scaleLighten(0.5)
-          expect(testColor.getHsba()?.brightness).to(beCloseTo(0.75, within: 0.001))
+          expect(testColor?.getHsba()?.brightness).to(beCloseTo(0.75, within: 0.001))
         }
         
         it("should scaleLighten a greyscale color") {
           let testColor = greyColor.scaleLighten(0.2)
-          expect(testColor.getGreyscale()?.white).to(beCloseTo(0.6, within: 0.001))
+          expect(testColor?.getGreyscale()?.white).to(beCloseTo(0.6, within: 0.001))
         }
       }
       
@@ -88,12 +88,12 @@ class UIColorExtensionsSpec: QuickSpec {
         
         it ("should darken a color") {
           let testColor = hsbColor.darken(0.4)
-          expect(testColor.brightness).to(beCloseTo(0.2, within: 0.001))
+          expect(testColor?.brightness).to(beCloseTo(0.2, within: 0.001))
         }
         
         it("should scaleDarken a color") {
           let testColor = greyColor.scaleDarken(0.5)
-          expect(testColor.brightness).to(beCloseTo(0.3, within: 0.001))
+          expect(testColor?.brightness).to(beCloseTo(0.3, within: 0.001))
         }
       }
       
@@ -102,14 +102,14 @@ class UIColorExtensionsSpec: QuickSpec {
         
         it("can tint a color") {
           let testColor = rgbaColor.tint(0.3)
-          expect(testColor.red).to(beCloseTo(0.6, within: 0.001))
-          expect(testColor.blue).to(beCloseTo(1.0, within: 0.0001))
+          expect(testColor?.red).to(beCloseTo(0.6, within: 0.001))
+          expect(testColor?.blue).to(beCloseTo(1.0, within: 0.0001))
         }
         
         it("can shade a color") {
           let testColor = rgbaColor.shade(0.5)
-          expect(testColor.red).to(beCloseTo(0.0, within: 0.001))
-          expect(testColor.blue).to(beCloseTo(0.2, within: 0.001))
+          expect(testColor?.red).to(beCloseTo(0.0, within: 0.001))
+          expect(testColor?.blue).to(beCloseTo(0.2, within: 0.001))
         }
       }
       
