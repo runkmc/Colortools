@@ -65,11 +65,7 @@ public func saturate(amount:Double) -> UIColor?
 
 public func desaturate(amount:Double) -> UIColor?
 // The opposite of saturate
-```
 
-But you said you had a new way to create UIColors, as well. Are you... lying?
-
-```swift
 public convenience init(hex:UInt32) 
 // This takes a hexadecimal number of RRGGBBAA format. Observe:
 
