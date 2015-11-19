@@ -1,15 +1,32 @@
 # Colortools
 
-[![CI Status](http://img.shields.io/travis/Kevin McGladdery/Colortools.svg?style=flat)](https://travis-ci.org/Kevin McGladdery/Colortools)
 [![Version](https://img.shields.io/cocoapods/v/Colortools.svg?style=flat)](http://cocoapods.org/pods/Colortools)
 [![License](https://img.shields.io/cocoapods/l/Colortools.svg?style=flat)](http://cocoapods.org/pods/Colortools)
 [![Platform](https://img.shields.io/cocoapods/p/Colortools.svg?style=flat)](http://cocoapods.org/pods/Colortools)
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Colortools adds some methods to UIColor. Let's look at them!
 
-## Requirements
+```swift
+public var hue: Double?  // Returns a UIColor's hue
+  
+public var saturation: Double?  // Returns a UIColor's saturation
+  
+public var brightness: Double?  // Returns a UIColor's brightness
+
+public var alpha: Double?  // Returns a UIColor's alpha value
+
+public var red: Double?  // Returns a UIColor's red component
+
+public var green: Double?  // Returns a UIColor's green component
+
+public var blue: Double?  // Returns a UIColor's blue component
+
+public var white: Double?  // Returns a UIColor's white component, if it's a greyscale UIColor.
+```
+
+To run the tests, clone the repo, and run `pod install` from the Example directory first.
 
 ## Installation
 
