@@ -34,6 +34,15 @@ extension UIColor {
     return self.getGreyscale()?.white
   }
   
+  public convenience init(hex:UInt32) {
+    let red = (hex & 0xFF000000) >> 24
+    let green = (hex & 0x00FF0000) >> 16
+    let blue = (hex & 0x0000FF00) >> 8
+    let alpha = hex & 0x000000FF
+    
+    self.init(red: CGFloat(Float(red)/255), green: CGFloat(Float(green)/255), blue: CGFloat(Float(blue)/255), alpha: CGFloat(Float(alpha)/255))
+  }
+  
   public func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
     let hue = UnsafeMutablePointer<CGFloat>.alloc(1)
     let brightness = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -168,6 +177,10 @@ extension UIColor {
     } else {
       return nil
     }
+  }
+  
+  public func desaturate(amount:Double) -> UIColor? {
+    return self.saturate((amount * -1))
   }
     
 }

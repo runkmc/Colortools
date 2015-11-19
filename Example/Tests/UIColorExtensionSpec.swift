@@ -123,6 +123,31 @@ class UIColorExtensionsSpec: QuickSpec {
           expect(testColor?.saturation).to(beCloseTo(0.8, within: 0.001))
           expect(oversaturate?.saturation).to(beCloseTo(1.0, within: 0.001))
         }
+        
+        it("can desaturate a color") {
+          let testColor = hsbaColor.desaturate(0.4)
+          let undersaturate = hsbaColor.desaturate(0.9)
+          
+          expect(testColor?.saturation).to(beCloseTo(0.1, within: 0.001))
+          expect(undersaturate?.saturation).to(beCloseTo(0.0, within: 0.001))
+        }
+      }
+      
+      describe("create UIColor with hex number") {
+        it("creates UIColor with a hex") {
+          let testGreen = UIColor.init(hex:0x00FF00FF)
+          let testTransparentPurple = UIColor.init(hex: 0x663399CC)
+          
+          expect(testGreen.red).to(beCloseTo(0.0, within: 0.001))
+          expect(testGreen.green).to(beCloseTo(1.0, within: 0.001))
+          expect(testGreen.blue).to(beCloseTo(0.0, within: 0.001))
+          expect(testGreen.alpha).to(beCloseTo(1.0, within: 0.001))
+          
+          expect(testTransparentPurple.red).to(beCloseTo(0.4, within: 0.001))
+          expect(testTransparentPurple.green).to(beCloseTo(0.2, within: 0.001))
+          expect(testTransparentPurple.blue).to(beCloseTo(0.6, within: 0.001))
+          expect(testTransparentPurple.alpha).to(beCloseTo(0.8, within: 0.001))
+        }
       }
     }
 }
