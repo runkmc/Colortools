@@ -2,34 +2,42 @@ import UIKit
 
 extension UIColor {
   
+  /// Returns the hue of a UIColor
   public var hue: Double? {
     return self.getHsba()?.hue
   }
   
+  /// Returns the saturation of a UIColor
   public var saturation: Double? {
     return self.getHsba()?.saturation
   }
   
+  /// Returns the brightness of a UIColor
   public var brightness: Double? {
     return self.getHsba()?.brightness
   }
   
+  /// Returns the alpha value of a UIColor
   public var alpha: Double? {
     return self.getHsba()?.alpha
   }
   
+  /// Returns the red value of a UIColor
   public var red: Double? {
     return self.getRgba()?.red
   }
   
+  /// Returns the green value of a UIColor
   public var green: Double? {
     return self.getRgba()?.green
   }
   
+  /// Returns the blue value of a UIColor
   public var blue: Double? {
     return self.getRgba()?.blue
   }
   
+  /// Returns the white value of a greyscale UIColor
   public var white: Double? {
     return self.getGreyscale()?.white
   }
