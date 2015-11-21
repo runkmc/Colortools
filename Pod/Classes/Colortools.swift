@@ -42,6 +42,13 @@ extension UIColor {
     return self.getGreyscale()?.white
   }
   
+  /** This takes a hexadecimal number of RRGGBBAA format. Observe:
+
+	  let green = UIColor.init(hex:0x00FF00FF)
+	  let semiTransparentRed = UIColor.init(hex:0xFF000088)
+	  let orange = UIColor.init(hex:0xF27935FF)
+
+	And so on. */
   public convenience init(hex:UInt32) {
     let red = (hex & 0xFF000000) >> 24
     let green = (hex & 0x00FF0000) >> 16
@@ -50,7 +57,8 @@ extension UIColor {
     
     self.init(red: CGFloat(Float(red)/255), green: CGFloat(Float(green)/255), blue: CGFloat(Float(blue)/255), alpha: CGFloat(Float(alpha)/255))
   }
-  
+
+  /// Returns an optional tuple with the named HSBA components
   public func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
     let hue = UnsafeMutablePointer<CGFloat>.alloc(1)
     let brightness = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -79,7 +87,8 @@ extension UIColor {
     
     return values
   }
-  
+
+  /// Returns an optional tuple with the named RGBA components
   public func getRgba() -> (red:Double, green:Double, blue:Double, alpha:Double)? {
     let red = UnsafeMutablePointer<CGFloat>.alloc(1)
     let blue = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -110,6 +119,7 @@ extension UIColor {
     return values
   }
   
+  /// Returns an optional tuple with the named greyscale components
   public func getGreyscale() -> (white:Double, alpha:Double)? {
     let white = UnsafeMutablePointer<CGFloat>.alloc(1)
     let alpha = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -132,6 +142,7 @@ extension UIColor {
     return values
   }
   
+  /// Returns an optional UIColor with the brightness raised by a number between 0.0 and 1.0
   public func lighten(amount:Double) -> UIColor? {
     if let values = self.getHsba() {
       return UIColor.init(hue: CGFloat(values.hue),
@@ -142,7 +153,10 @@ extension UIColor {
         return nil
     }
   }
-  
+
+  /** Returns an optional UIColor with the brightness raised a percentage of the
+  way to 1.0. (i.e. scaleLighten(0.5) on a UIColor with a brightness of 0.5 will
+  return a UIColor with a brightness of 0.75 -- 50% of the way to 1.0 */
   public func scaleLighten(amount:Double) -> UIColor? {
     if let values = self.getHsba() {
       return UIColor.init(hue: CGFloat(values.hue),
@@ -153,14 +167,18 @@ extension UIColor {
     }
   }
   
+  /// The opposite of lighten
   public func darken(amount:Double) -> UIColor? {
     return self.lighten((amount * -1))
   }
-  
+
+  /// The opposite of scaleLighten 
   public func scaleDarken(amount:Double) -> UIColor? {
     return self.scaleLighten((amount * -1))
   }
   
+  /** Takes a double between 0.0 and 1.0, and adds the corresponding amount of
+  white to the color. This is kind of like lighten, but different */
   public func tint(amount:Double) -> UIColor? {
     if let rgb = self.getRgba() {
       return UIColor.init(red: CGFloat(rgb.red + amount),
@@ -172,10 +190,12 @@ extension UIColor {
     }
   }
   
+  /// The opposite of tint, this adds black to a color
   public func shade(amount:Double) -> UIColor? {
     return self.tint((amount * -1))
   }
   
+  /// Takes a double between 0.0 and 1.0 and raises the saturation accordingly
   public func saturate(amount:Double) -> UIColor? {
     if let hsb = self.getHsba() {
       return UIColor.init(hue: CGFloat(hsb.hue),
@@ -186,7 +206,8 @@ extension UIColor {
       return nil
     }
   }
-  
+ 
+  /// The opposite of saturate  
   public func desaturate(amount:Double) -> UIColor? {
     return self.saturate((amount * -1))
   }
