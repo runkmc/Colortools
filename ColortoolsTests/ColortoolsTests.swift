@@ -32,4 +32,8 @@ class ColortoolsTests: XCTestCase {
     func testSaturation() {
         XCTAssertEqualWithAccuracy(UIColor.white.brightness!, 1.0, accuracy: 0.01)
     }
+    
+    func testAlpha() {
+        XCTAssertEqualWithAccuracy(UIColor.green.alpha!, 1.0, accuracy: 0.01)
+    }
 }

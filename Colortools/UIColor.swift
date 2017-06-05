@@ -25,6 +25,11 @@ extension UIColor {
         return self.getHsba()?.saturation
     }
     
+    /// Returns the alpha value of a UIColor
+    public var alpha: Double? {
+        return self.getHsba()?.alpha
+    }
+    
     private func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
         let hue = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
         let brightness = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
