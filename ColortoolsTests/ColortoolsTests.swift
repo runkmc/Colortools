@@ -25,4 +25,8 @@ class ColortoolsTests: XCTestCase {
         XCTAssertEqualWithAccuracy(UIColor.blue.hue!, 0.6666666, accuracy: 0.01)
     }
     
+    func testBrightness() {
+        XCTAssertEqualWithAccuracy(UIColor.white.brightness!, 1.0, accuracy: 0.01)
+    }
+    
 }
