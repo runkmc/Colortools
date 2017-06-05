@@ -10,6 +10,7 @@
 		0ADF71321EE61F2F00C66C06 /* Colortools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADF71281EE61F2F00C66C06 /* Colortools.framework */; };
 		0ADF71371EE61F2F00C66C06 /* ColortoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF71361EE61F2F00C66C06 /* ColortoolsTests.swift */; };
 		0ADF71391EE61F2F00C66C06 /* Colortools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ADF712B1EE61F2F00C66C06 /* Colortools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0ADF71431EE623F600C66C06 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADF71421EE623F600C66C06 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		0ADF71311EE61F2F00C66C06 /* ColortoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColortoolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADF71361EE61F2F00C66C06 /* ColortoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColortoolsTests.swift; sourceTree = "<group>"; };
 		0ADF71381EE61F2F00C66C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADF71421EE623F600C66C06 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				0ADF712B1EE61F2F00C66C06 /* Colortools.h */,
 				0ADF712C1EE61F2F00C66C06 /* Info.plist */,
+				0ADF71421EE623F600C66C06 /* UIColor.swift */,
 			);
 			path = Colortools;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 					0ADF71271EE61F2F00C66C06 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = P3HAZUW5GC;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					0ADF71301EE61F2F00C66C06 = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADF71431EE623F600C66C06 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +329,7 @@
 		0ADF713D1EE61F2F00C66C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P3HAZUW5GC;
@@ -336,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.kmcg.Colortools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +350,7 @@
 		0ADF713E1EE61F2F00C66C06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = P3HAZUW5GC;
@@ -362,6 +370,7 @@
 		0ADF71401EE61F2F00C66C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = P3HAZUW5GC;
 				INFOPLIST_FILE = ColortoolsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +383,7 @@
 		0ADF71411EE61F2F00C66C06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = P3HAZUW5GC;
 				INFOPLIST_FILE = ColortoolsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -402,6 +412,7 @@
 				0ADF713E1EE61F2F00C66C06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ADF713F1EE61F2F00C66C06 /* Build configuration list for PBXNativeTarget "ColortoolsTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +421,7 @@
 				0ADF71411EE61F2F00C66C06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
