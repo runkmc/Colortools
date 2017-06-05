@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Colortools
+import Colortools
 
 class ColortoolsTests: XCTestCase {
     
