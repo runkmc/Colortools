@@ -9,7 +9,8 @@
 import UIKit
 
 extension UIColor {
-
+    
+    /// Returns the hue of a UIColor
     public var hue: Double? {
         return self.getHsba()?.hue
     }
