@@ -75,7 +75,7 @@ extension UIColor {
         return values
     }
     
-    public func getRgba() -> (red:Double, green:Double, blue:Double, alpha:Double)? {
+    private func getRgba() -> (red:Double, green:Double, blue:Double, alpha:Double)? {
         let red = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
         let blue = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
         let green = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
