@@ -58,6 +58,22 @@ extension UIColor {
         self.init(red: CGFloat(Float(red)/255), green: CGFloat(Float(green)/255), blue: CGFloat(Float(blue)/255), alpha: CGFloat(Float(alpha)/255))
     }
 
+    public static func lighten(_ color:UIColor, amount:Double) -> UIColor? {
+        if let values = color.getHsba() {
+            return UIColor.init(hue: CGFloat(values.hue),
+                                saturation: CGFloat(values.saturation),
+                                brightness: CGFloat(values.brightness + amount),
+                                alpha: CGFloat(values.alpha))
+        } else {
+            return nil
+        }
+    }
+    
+    /// The opposite of lighten
+    public static func darken(_ color:UIColor, amount:Double) -> UIColor? {
+        return self.lighten(color, amount:(amount * -1))
+    }
+    
     // Private stuff
     
     private func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {

@@ -65,4 +65,18 @@ class ColortoolsTests: XCTestCase {
         XCTAssertEqualWithAccuracy(color.blue!, 0.0, accuracy: 0.01)
         XCTAssertEqualWithAccuracy(color.alpha!, 1.0, accuracy: 0.01)
     }
+    
+    func testLighten() {
+        let oldColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 1.0)
+        let newColor = UIColor.lighten(oldColor, amount:0.3)
+        
+        XCTAssertEqualWithAccuracy(newColor!.brightness!, 0.8, accuracy: 0.01)
+    }
+    
+    func testDarken() {
+        let oldColor = UIColor(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 1.0)
+        let newColor = UIColor.darken(oldColor, amount:0.3)
+        
+        XCTAssertEqualWithAccuracy(newColor!.brightness!, 0.2, accuracy: 0.01)
+    }
 }
