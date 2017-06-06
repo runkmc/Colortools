@@ -44,6 +44,11 @@ extension UIColor {
         return self.getRgba()?.blue
     }
     
+    /// Returns the white value of a greyscale UIColor
+    public var white: Double? {
+        return self.getGreyscale()?.white
+    }
+    
     // Private stuff
     
     private func getHsba() -> (hue:Double, saturation:Double, brightness:Double, alpha:Double)? {
@@ -99,6 +104,28 @@ extension UIColor {
         blue.deallocate(capacity: 1)
         green.deinitialize(count: 1)
         green.deallocate(capacity: 1)
+        alpha.deinitialize(count: 1)
+        alpha.deallocate(capacity: 1)
+        
+        return values
+    }
+
+    private func getGreyscale() -> (white:Double, alpha:Double)? {
+        let white = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
+        let alpha = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
+        
+        white.initialize(to: 0.0)
+        alpha.initialize(to: 0.0)
+        
+        var values: (white:Double, alpha:Double)?
+        if self.getWhite(white, alpha: alpha) == true {
+            values = (white: Double(white.pointee), alpha: Double(alpha.pointee))
+        } else {
+            values = nil
+        }
+        
+        white.deinitialize(count: 1)
+        white.deallocate(capacity: 1)
         alpha.deinitialize(count: 1)
         alpha.deallocate(capacity: 1)
         

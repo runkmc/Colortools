@@ -51,4 +51,11 @@ class ColortoolsTests: XCTestCase {
         XCTAssertEqualWithAccuracy(UIColor.blue.blue!, 1.0, accuracy: 0.01)
         XCTAssertEqualWithAccuracy(UIColor.green.blue!, 0.0, accuracy: 0.01)
     }
+    
+    func testWhite() {
+        XCTAssertEqualWithAccuracy(UIColor.white.white!, 1.0, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(UIColor.gray.white!, 0.5, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(UIColor.black.white!, 0.0, accuracy: 0.01)
+    }
+    
 }
